@@ -27,9 +27,12 @@ do \
     export_env[export_env_index] = (char *)NULL; \
   } while (0)
 ```
+
 > s.  Bash now sets the extern variable `environ' to the export environment it
 >     creates, so C library functions that call getenv() (and can't use the
 >     shell-provided replacement) get current values of environment variables.
+
+
 https://github.com/bminor/bash/blob/f3a35a2d601a55f337f8ca02a541f8c033682247/NEWS#L1276
 
 这里environ都是extern的，去看下libc跟kernel，
@@ -92,7 +95,7 @@ unsetenv (const char *name)
 https://www.keil.com/support/man/docs/c166/c166_xrealloc.htm
 
 ```c
-# lib/sh/stringvec.c
+// lib/sh/stringvec.c
 char **
 strvec_resize (array, nsize)
      char **array;
@@ -101,7 +104,7 @@ strvec_resize (array, nsize)
   return ((char **)xrealloc (array, nsize * sizeof (char *)));
 }
 
-# braces.c
+// braces.c
 void *
 xrealloc(p, n)
      void *p;
@@ -110,7 +113,7 @@ xrealloc(p, n)
   return (realloc (p, n));
 }
 
-# xmalloc.c
+// xmalloc.c
 PTR_T
 xrealloc (pointer, bytes)
      PTR_T pointer;
