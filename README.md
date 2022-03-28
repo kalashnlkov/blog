@@ -9,3 +9,4 @@
 |keyer||TODO|
 |how does strerror impl?||TODO<https://www.spinics.net/lists/newbies/msg08964.html>|
 |环境变量| https://github.com/kalashnlkov/blog/blob/master/environ.md | 扩展阅读 & qemu模拟看environ的位置|
+|qt|https://github.com/kalashnlkov/blog/blob/master/qt.md| 就是挖坑。估计咕咕了|
